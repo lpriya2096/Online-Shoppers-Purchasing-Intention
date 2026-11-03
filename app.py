@@ -158,12 +158,25 @@ with c2:
     st.caption("TP = purchases correctly predicted · TN = non-purchases correctly predicted · "
                "FP = predicted purchase but none happened · FN = missed purchases")
 
+
 with st.expander("Compare all five models on this file"):
-    rows = []
-    for name, p in MODEL_FILES.items():
-        try:
-            _, m, _ = evaluate(load_model(p), X, y)
-            rows.append({"Model": name, **{k: round(v, 4) for k, v in m.items()}})
-        except Exception as exc:
+    if st.button("Run comparison"):
+        rows = []
+        for name, p in MODEL_FILES.items():
+            try:
+                _, m, _ = evaluate(load_model(p), X, y)
+                rows.append({"Model": name, **{k: round(v, 4) for k, v in m.items()}})
+            except Exception as exc:
+                rows.append({"Model": name, "Accuracy": f"failed: {exc}"})
+        st.dataframe(pd.DataFrame(rows), hide_index=True)
+
+
+
+
+
+
+
+
+
             rows.append({"Model": name, "Accuracy": f"failed: {exc}"})
     st.dataframe(pd.DataFrame(rows), hide_index=True)
