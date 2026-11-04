@@ -15,7 +15,7 @@ Online retailers want to know which website sessions end in a purchase. Using br
 ## c. GitHub repository
 https://github.com/lpriya2096/Online-Shoppers-Purchasing-Intention
 
-Live Streamlit app: https://online-shoppers-purchasing-intention-q3s5zyxh8n9g4v9rykpibt.streamlit.app
+Live Streamlit app: https://online-shoppers-purchasing-intention-7iktxvhohj9ecgnamhddcg.streamlit.app/
 
 ## d. Models used
 
