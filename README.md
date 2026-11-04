@@ -15,7 +15,7 @@ Online retailers want to know which website sessions end in a purchase. Using br
 ## c. GitHub repository
 https://github.com/lpriya2096/Online-Shoppers-Purchasing-Intention
 
-Live Streamlit app: <paste your streamlit.app link here>
+Live Streamlit app: https://online-shoppers-purchasing-intention-q3s5zyxh8n9g4v9rykpibt.streamlit.app
 
 ## d. Models used
 
@@ -34,7 +34,7 @@ Live Streamlit app: <paste your streamlit.app link here>
 | Logistic Regression | Highest precision (0.74) but it catches only 36% of real purchases. With 15.5% buyers and the default 0.5 threshold it plays safe and predicts "no purchase" often. AUC (0.88) shows the underlying ranking is good; the threshold is what limits recall. |
 | Decision Tree | Best accuracy, AUC, F1 and MCC. Depth 5 lets it capture non-linear rules (such as high PageValues leading to a purchase) that a linear model misses, and it recalls 59% of buyers with precision still 0.71. |
 | KNN | Weakest of the four usable models: lowest AUC (0.76) and MCC (0.45). With k=5 the probabilities are coarse, and the many one-hot columns dilute the distances, so neighbours are not very informative. Recall is only 38%. |
-| Naive Bayes | Accuracy collapses to 0.27 because it predicts "purchase" for about 87% of sessions. Recall is 0.97 but precision (0.17) is about the base rate, i.e. it is barely better than guessing. The cause is the ~60 one-hot columns: Gaussian NB treats each 0/1 column as an independent bell curve, and these columns are neither Gaussian nor independent (dummies from one feature are mutually exclusive). Their tiny variances give extreme likelihoods that swamp the numeric evidence. |
+| Naive Bayes | Accuracy collapses to 0.27 because it predicts "purchase" for about 87% of sessions. Recall is 0.97 but precision (0.17) is about the base rate, i.e. it is barely better than guessing. The cause is the 65 one-hot columns (75 input columns in total): Gaussian NB treats each 0/1 column as an independent bell curve, and these columns are neither Gaussian nor independent (dummies from one feature are mutually exclusive). Their tiny variances give extreme likelihoods that swamp the numeric evidence. |
 | Support Vector Machine | Second-best on MCC (0.51) and accuracy (0.89), with better recall than Logistic Regression and KNN. Still misses over half of buyers at the default settings. |
 | **Overall winner** | **Decision Tree.** It leads on accuracy (0.899), AUC (0.917), F1 (0.643) and MCC (0.588), and is second on precision. Because only 15.5% of sessions are purchases, accuracy alone is misleading, so MCC and F1 were used to decide. |
 
@@ -46,4 +46,4 @@ All models use default 0.5 thresholds and light hyperparameters without tuning; 
 pip install -r requirements.txt
 streamlit run app.py
 ```
-Upload `test_data.csv` in the app, pick a model, and the app shows the six metrics, the confusion matrix and the formula for each metric.
+Upload `test_data.csv` in the app, pick a model, and click **Run Evaluation**, and the app shows the six metrics, the confusion matrix and the formula for each metric.
