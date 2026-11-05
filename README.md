@@ -13,7 +13,7 @@ Online retailers want to know which website sessions end in a purchase. Using br
 - **Preprocessing:** numeric features standardised, categorical features one-hot encoded, both inside a scikit-learn `Pipeline`, so the transformers are fitted on training data only.
 
 ## c. GitHub repository
-https://github.com/lpriya2096/Online-Shoppers-Purchasing-Intention
+GitHub : https://github.com/lpriya2096/Online-Shoppers-Purchasing-Intention
 
 Live Streamlit app: https://online-shoppers-purchasing-intention-7iktxvhohj9ecgnamhddcg.streamlit.app/
 
@@ -47,3 +47,8 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 Upload `test_data.csv` in the app, pick a model, and click **Run Evaluation**, and the app shows the six metrics, the confusion matrix and the formula for each metric.
+
+Links:
+GitHub Repository: https://github.com/lpriya2096/Online-Shoppers-Purchasing-Intention/
+Streamlit Application: https://online-shoppers-purchasing-intention-7iktxvhohj9ecgnamhddcg.streamlit.app/
+Dataset: https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset
